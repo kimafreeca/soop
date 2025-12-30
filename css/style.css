@@ -115,72 +115,22 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Platform Cards - 깔끔한 디자인 */
-.platform-card {
+/* Platform Cards - 기본 디자인 */
+.bg-white.rounded-lg {
     background: white;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 1.5rem;
     border: 1px solid #e5e7eb;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
-.platform-card:hover {
+.bg-white.rounded-lg:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
     border-color: #d1d5db;
 }
 
-.platform-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.platform-logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    font-weight: bold;
-    color: white;
-    flex-shrink: 0;
-}
-
-.platform-info h4 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 0.25rem;
-}
-
-.platform-info p {
-    font-size: 0.875rem;
-    color: #6b7280;
-}
-
-.platform-features {
-    margin-bottom: 1.5rem;
-}
-
-.feature-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-    font-size: 0.875rem;
-    color: #374151;
-}
-
-.feature-item i {
-    margin-right: 0.5rem;
-    font-size: 0.75rem;
-}
-
-.platform-btn {
+.bg-white.rounded-lg .platform-btn {
     width: 100%;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -196,20 +146,9 @@ body {
     justify-content: center;
 }
 
-.platform-btn:hover {
+.bg-white.rounded-lg .platform-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-/* 플랫폼별 로고 스타일 */
-.platform-card[data-platform="afreeca"] .platform-logo {
-    background: linear-gradient(135deg, #e53e3e, #c53030);
-}
-
-.platform-card[data-platform="soop"] .platform-logo {
-    background: #000;
-    font-family: 'Arial Black', sans-serif;
-    letter-spacing: 0.5px;
 }
 
 .platform-card[data-platform="panda"] .platform-logo {
