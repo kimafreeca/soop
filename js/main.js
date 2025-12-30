@@ -49,31 +49,28 @@ navLinks.forEach(link => {
     });
 });
 
-// Platform card interactions
-document.querySelectorAll('.platform-card').forEach(card => {
-    card.addEventListener('click', function() {
-        const platform = this.getAttribute('data-platform');
-        showPlatformDetails(platform);
-    });
-    
-    // Add hover effect
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-4px)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
-
-// 자세히보기 버튼 이벤트 리스너
+// Platform card interactions - 기본 버전
 document.querySelectorAll('.platform-btn').forEach(button => {
     button.addEventListener('click', function(e) {
         e.preventDefault();
-        e.stopPropagation();
-        const card = this.closest('.platform-card');
-        const platform = card.getAttribute('data-platform');
-        showPlatformDetails(platform);
+        // 플랫폼 이름을 버튼 텍스트에서 가져오기
+        const platformText = this.textContent;
+        let platform = '';
+        
+        if (platformText.includes('자세히')) {
+            // 부모 요소에서 플랫폼 이름 찾기
+            const card = this.closest('.bg-white.rounded-lg');
+            const platformName = card.querySelector('h4').textContent;
+            
+            if (platformName.includes('아프리카TV')) platform = 'afreeca';
+            else if (platformName.includes('숲TV')) platform = 'soop';
+            else if (platformName.includes('팬더TV')) platform = 'panda';
+            else if (platformName.includes('팝콘TV')) platform = 'popkon';
+        }
+        
+        if (platform) {
+            showPlatformDetails(platform);
+        }
     });
 });
 
@@ -201,9 +198,9 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Scroll animations
+// Scroll animations - 기본 버전
 function animateOnScroll() {
-    const elements = document.querySelectorAll('.platform-card, .feature-card');
+    const elements = document.querySelectorAll('.bg-white.rounded-lg, .feature-card');
     
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
@@ -220,7 +217,7 @@ function animateOnScroll() {
 window.addEventListener('scroll', animateOnScroll);
 document.addEventListener('DOMContentLoaded', function() {
     // Set initial state for animated elements
-    const elements = document.querySelectorAll('.platform-card, .feature-card');
+    const elements = document.querySelectorAll('.bg-white.rounded-lg, .feature-card');
     elements.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(20px)';
